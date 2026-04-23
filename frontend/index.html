@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Simulador de Autómatas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h1>Simulador AFD y AFND</h1>
+
+<select id="tipo">
+    <option value="afd/transacciones">AFD - Transacciones</option>
+    <option value="afd/handshake">AFD - Handshake</option>
+    <option value="afd/cerradura">AFD - Cerradura</option>
+    <option value="afnd/genetica">AFND - Genética</option>
+    <option value="afnd/usuario">AFND - Usuario</option>
+    <option value="afnd/telemetria">AFND - Telemetría</option>
+</select>
+
+<br><br>
+
+<input type="text" id="cadena" placeholder="Ingrese la cadena">
+<button onclick="evaluar()">Evaluar</button>
+
+<h2>Resultado:</h2>
+<p id="resultado"></p>
+
+<hr>
+
+<h2>Alfabeto:</h2>
+<p id="alfabeto"></p>
+
+<h2>Transiciones:</h2>
+<pre id="transiciones"></pre>
+
+<h2>Diagrama:</h2>
+<img id="diagrama" width="400">
+
+<script src="script.js"></script>
+
+</body>
+</html>
