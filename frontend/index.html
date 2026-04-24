@@ -1,41 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Simulador de Autómatas</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<title>Simulador de Autómatas AFD y AFND</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<h1>Simulador AFD y AFND</h1>
+<div class="container">
 
-<select id="tipo">
-    <option value="afd/transacciones">AFD - Transacciones</option>
-    <option value="afd/handshake">AFD - Handshake</option>
-    <option value="afd/cerradura">AFD - Cerradura</option>
-    <option value="afnd/genetica">AFND - Genética</option>
-    <option value="afnd/usuario">AFND - Usuario</option>
-    <option value="afnd/telemetria">AFND - Telemetría</option>
+<header class="hero">
+<h1>Simulador de Autómatas Finitos</h1>
+<p>
+Comparación interactiva de AFD y AFND con ejecución,
+alfabetos, transiciones y diagramas.
+</p>
+</header>
+
+
+<div class="panel-grid">
+
+<!-- PANEL IZQUIERDO -->
+<div class="card">
+
+<h2>Configuración</h2>
+
+<label>Selecciona ejercicio</label>
+
+<select id="tipo" onchange="actualizarInfo()">
+<option value="afd/transacciones">
+AFD — Flujo Transacciones Bancarias
+</option>
+
+<option value="afd/handshake">
+AFD — Three Way Handshake
+</option>
+
+<option value="afd/cerradura">
+AFD — Cerradura Inteligente
+</option>
+
+<option value="afnd/genetica">
+AFND — Secuencia Genética
+</option>
+
+<option value="afnd/usuario">
+AFND — Comportamiento Usuario
+</option>
+
+<option value="afnd/telemetria">
+AFND — Telemetría IoT
+</option>
+
 </select>
 
-<br><br>
 
-<input type="text" id="cadena" placeholder="Ingrese la cadena">
-<button onclick="evaluar()">Evaluar</button>
+<div class="info-box">
+<h3>Descripción</h3>
+<p id="descripcion"></p>
+</div>
 
-<h2>Resultado:</h2>
-<p id="resultado"></p>
 
-<hr>
+<div class="info-box alphabet-box">
+<h3>Alfabeto válido</h3>
+<div id="alfabeto"></div>
+</div>
 
-<h2>Alfabeto:</h2>
-<p id="alfabeto"></p>
 
-<h2>Transiciones:</h2>
+<label>Ingresar cadena</label>
+
+<input
+id="cadena"
+type="text"
+placeholder=""
+autocomplete="off"
+/>
+
+<button onclick="evaluar()">
+Ejecutar Simulación
+</button>
+
+
+<div class="resultado-card">
+<h3>Resultado</h3>
+<p id="resultado">
+Esperando ejecución...
+</p>
+</div>
+
+</div>
+
+
+<!-- PANEL DERECHO -->
+<div class="card">
+
+<h2>Modelo del Autómata</h2>
+
+<div class="subcard">
+<h3>Tabla de Transiciones</h3>
 <pre id="transiciones"></pre>
+</div>
 
-<h2>Diagrama:</h2>
-<img id="diagrama" width="400">
+<div class="subcard">
+<h3>Diagrama de Estados</h3>
+
+<img id="diagrama">
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <script src="script.js"></script>
 
