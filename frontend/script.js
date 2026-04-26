@@ -52,10 +52,10 @@ descripcion:
 "Reconoce el patrón K G X* F.",
 
 transiciones:
-`q0-K→q1
-q1-G→q2
-q2-X→q2
-q2-F→qf`,
+`q0 --K-→q1
+q1 --G-→q2
+q2 --X-→q2
+q2 --F-→qf`,
 
 imagen:"img/genetica.png"
 },
@@ -67,10 +67,10 @@ descripcion:
 "Reconoce HOME SEARCH+ CART.",
 
 transiciones:
-`q0-H→q1
-q1-S→q2
-q2-S→q2
-q2-C→qf`,
+`q0 --H-→q1
+q1 --S-→q2
+q2 --S-→q2
+q2 --C-→qf`,
 
 imagen:"img/usuario.png"
 },
@@ -82,9 +82,9 @@ descripcion:
 "Valida HDR (TEMP|HUM)* CRC.",
 
 transiciones:
-`q0-H→q1
-q1-T/U→q1
-q1-C→qf`,
+`q0 --H-→q1
+q1 --T/U-→q1
+q1 --C-→qf`,
 
 imagen:"img/telemetria.png"
 }
