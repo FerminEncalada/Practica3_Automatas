@@ -1,19 +1,49 @@
+"""
+---------------------------------------------------------
+Tema:
+AFND - Reconocimiento de Secuencias Genéticas
+
+Lenguaje:
+L = { K G X^n F | n >= 0 }
+
+Patrón:
+K G X* F
+
+X representa cualquier aminoácido repetido
+cero o más veces.
+---------------------------------------------------------
+"""
+
 def validar_genetica(cadena):
-    estados = {"q0"}
+    """
+    Simula un AFND usando conjunto de estados activos.
+    Reconoce patrones genéticos definidos.
+    """
+
+    estados={"q0"}
 
     for simbolo in cadena:
-        nuevos = set()
 
+        nuevos=set()
+
+        # Evaluación de transiciones posibles
         for estado in estados:
-            if estado == "q0" and simbolo == "K":
+
+            if estado=="q0" and simbolo=="K":
                 nuevos.add("q1")
-            elif estado == "q1" and simbolo == "G":
+
+            if estado=="q1" and simbolo=="G":
                 nuevos.add("q2")
-            elif estado == "q2" and simbolo == "X":
+
+            # Clausura de Kleene X*
+            if estado=="q2" and simbolo=="X":
                 nuevos.add("q2")
-            elif estado == "q2" and simbolo == "F":
+
+            # Estado de aceptación
+            if estado=="q2" and simbolo=="F":
                 nuevos.add("qf")
 
-        estados = nuevos
+        estados=nuevos
 
+    # Se acepta si algún camino llega a qf
     return "qf" in estados
